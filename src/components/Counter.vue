@@ -1,5 +1,5 @@
 <template>
-    <h2>Counter</h2>
+    <h2>{{customTitle}}</h2>
     <p> {{counter}} <sup>2</sup> = {{squareCounter}} </p>
 
     <div>
@@ -11,9 +11,20 @@
 
 <script>
 export default {
+    props: {
+        title: String,
+        start: {
+            type: Number,
+            default: 10, // Esto da un numero por defecto
+            //required: true // esto le dice a vue que es obligatorio
+            validator( value ) {
+                return value >= 10
+            }
+        }
+    },
     data() { // La data regresa un objeto 
         return {
-            counter: 5,
+            counter: this.start,
         }
     },
     methods: {
@@ -30,6 +41,9 @@ export default {
     computed: {
         squareCounter() {
             return this.counter * this.counter
+        },
+        customTitle() {
+            return !this.title ? 'counter' : this.title
         }
     }
 }
