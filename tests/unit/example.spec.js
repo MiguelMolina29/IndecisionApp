@@ -5,7 +5,7 @@ describe('Example Components', () => {
   test( 'Debe de ser mayor a 10', () => {
     
     // Arreglar
-    let value = 5;
+    let value = 11;
 
     // Estimulo
     value = value + 2;
