@@ -1,5 +1,6 @@
 <template>
     <h2>{{customTitle}}</h2>
+    <p data-testid="counter">{{counter}}</p>
     <p> {{counter}} <sup>2</sup> = {{squareCounter}} </p>
 
     <div>
@@ -15,7 +16,7 @@ export default {
         title: String,
         start: {
             type: Number,
-            default: 10, // Esto da un numero por defecto
+            default: 100, // Esto da un numero por defecto
             //required: true // esto le dice a vue que es obligatorio
             validator( value ) {
                 return value >= 10
